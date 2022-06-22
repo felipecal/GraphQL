@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon --exec babel-node src/index.js"
   },
   "type": "module",
   "dependencies": {
@@ -13,6 +13,10 @@
     "merge-graphql-schemas": "^1.7.8"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
+    "@babel/node": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
     "nodemon": "^2.0.16"
   }
 }
