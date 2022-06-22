@@ -1,12 +1,11 @@
 {
-  "name": "Graphql_teste",
+  "name": "Graphql",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/index.js"
+    "dev": "nodemon --exec babel-node src/index.js -e js,gql"
   },
-  "type": "module",
   "dependencies": {
     "apollo-server": "^3.9.0",
     "graphql": "15.7.2",
