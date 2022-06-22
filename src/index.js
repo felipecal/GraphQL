@@ -1,18 +1,9 @@
-import  ApolloServer  from 'apollo-server';
-import {fileLoader, mergeTypes, mergeResolvers} from 'merge-graphql-schemas';
-import path from 'path';
+import { ApolloServer } from 'apollo-server';
+import typeDefs from "../src/graphql/typeDefs";
+import resolvers from "../src/graphql/resolvers";
 
-
-const resolvers = mergeResolvers(fileLoader(`${__dirname}/graphql/**/*.js`));
-
-const typesArray = fileLoader(path.join(__dirname, 'graphql', '**', '*.gql'));
-const typeDefs = mergeTypes(typesArray);
 
 const server = new ApolloServer({
-  typeDefs,resolvers
-
-  });
-  
-  server.listen().then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
-  });
+  typeDefs, resolvers
+});
+server.listen().then(({ url }) => console.log(`🔥 Server started at ${url}`))
