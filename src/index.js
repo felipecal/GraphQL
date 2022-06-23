@@ -2,11 +2,8 @@ import { ApolloServer } from 'apollo-server';
 import { fileLoader, mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 import path from 'path';
 
-const typesArray = fileLoader(path.join(__dirname, 'graphql', '**', '*.gql'));
-const typeDefs = mergeTypes(typesArray);
-
-const resolversArray = fileLoader(path.join(__dirname, 'graphql', '**', 'books.js'));
-const resolvers = mergeResolvers(resolversArray);
+const typeDefs = mergeTypes(fileLoader(path.join(__dirname, 'graphql', '**', '*.gql')));
+const resolvers = mergeResolvers(fileLoader(path.join(__dirname, 'graphql', '**', '*.js')));
 
 const books = [
   {
@@ -25,4 +22,3 @@ const server = new ApolloServer({
 server.listen().then(({ url }) => console.log(`🔥 Server started at ${url}`))
 
 export default books;
-
